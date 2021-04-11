@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken, lighten } from "polished";
+import { darken } from "polished";
 
 export const Container = styled.div`
   padding: 30px;
@@ -9,10 +9,33 @@ export const Container = styled.div`
   footer {
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
+
     justify-content: space-between;
     align-items: center;
 
+    div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      p {
+        background: #b4eda7;
+        color: #398c0d;
+        line-height: 145%;
+        padding: 8px 16px;
+        border-radius: 16px;
+        margin: 0 64px;
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+
     button {
+      width: 100%;
+      margin-top: 24px;
+      order: 1;
       background: #0079ff;
       color: #fff;
       border: 0;
@@ -26,79 +49,25 @@ export const Container = styled.div`
         background: ${darken(0.06, "#0079FF")};
       }
     }
-  }
-`;
 
-export const ProductTable = styled.table`
-  width: 100%;
+    @media (max-width: 690px) {
+      div {
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
 
-  thead th {
-    color: #999;
-    text-align: left;
-    padding: 12px;
-  }
-
-  tbody td {
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-  }
-
-  img {
-    height: 100px;
-  }
-
-  strong {
-    color: #333;
-    display: block;
-  }
-
-  span {
-    display: block;
-    margin-top: 5px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-
-    input {
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      color: #444;
-      padding: 6px;
-      width: 50px;
-      text-align: center;
-    }
-  }
-
-  button {
-    background: none;
-    border: 0;
-    padding: 6px;
-
-    svg {
-      color: #0079ff;
-      transition: color 0.2s;
-    }
-
-    &:hover {
-      svg {
-        color: ${darken(0.06, "#0079FF")};
-      }
-    }
-
-    &:disabled {
-      svg {
-        color: ${lighten(0.25, "#0079FF")};
-        cursor: not-allowed;
+        p {
+          width: 100%;
+          margin: 0;
+          font-size: 12px;
+          margin-bottom: 24px;
+        }
       }
     }
   }
 `;
 
-export const Total = styled.div`
+export const Total = styled.section`
   display: flex;
   align-items: baseline;
 

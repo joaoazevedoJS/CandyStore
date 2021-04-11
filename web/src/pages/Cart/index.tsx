@@ -5,7 +5,7 @@ import { useCart } from "../../hooks/useCart";
 
 import { formatPrice } from "../../utils/format";
 
-import { Container, ProductTable, Total } from "./styles";
+import { Container, Total } from "./styles";
 
 const Cart: FC = () => {
   const { cart } = useCart();
@@ -20,32 +20,20 @@ const Cart: FC = () => {
 
   return (
     <Container>
-      <ProductTable>
-        <thead>
-          <tr>
-            <th aria-label="product image" />
-            <th>PRODUTO</th>
-            <th>QTD</th>
-            <th>SUBTOTAL</th>
-            <th aria-label="delete icon" />
-          </tr>
-        </thead>
-
-        <tbody>
-          <CartListItem />
-        </tbody>
-      </ProductTable>
+      <CartListItem />
 
       <footer>
         <button type="button">Finalizar pedido</button>
 
-        {total > 10 && <p>Parábens, sua compra tem frete grátis</p>}
+        <div>
+          {total > 10 && <p>Parábens, sua compra tem frete grátis</p>}
 
-        <Total>
-          <span>TOTAL</span>
+          <Total>
+            <span>TOTAL</span>
 
-          <strong>{formatPrice(total)}</strong>
-        </Total>
+            <strong>{formatPrice(total)}</strong>
+          </Total>
+        </div>
       </footer>
     </Container>
   );
