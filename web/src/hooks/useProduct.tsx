@@ -7,9 +7,11 @@ import api from "../services/api";
 export interface IProduct {
   id: string;
   name: string;
+  price: number;
   sellingPrice: number;
   imageUrl: string;
   priceFormatted: string;
+  sellingPriceFormatted: string;
 }
 
 interface ProductContextData {
@@ -30,7 +32,8 @@ const ProductProvider: FC = ({ children }) => {
       const prods = response.data.map((product) => {
         return {
           ...product,
-          priceFormatted: formatPrice(product.sellingPrice),
+          priceFormatted: formatPrice(product.price),
+          sellingPriceFormatted: formatPrice(product.sellingPrice),
         };
       });
 
