@@ -42,5 +42,11 @@ export const Cart = styled(Link)`
       font-size: 12px;
       color: #999;
     }
+
+    @media (max-width: 400px) {
+      strong {
+        display: none;
+      }
+    }
   }
 `;

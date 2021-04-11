@@ -30,6 +30,27 @@ export const ProductList = styled.ul`
       font-size: 21px;
       font-weight: bold;
       margin: 5px 0 20px;
+      display: flex;
+      color: #d51000;
+
+      span {
+        margin-right: 16px;
+        font-size: 16px;
+        color: #212121;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: "";
+          width: 50px;
+          height: 2px;
+          background: #212121;
+          position: absolute;
+          left: 10px;
+          transform: rotate(-45deg);
+        }
+      }
     }
 
     button {
@@ -65,5 +86,13 @@ export const ProductList = styled.ul`
         font-weight: bold;
       }
     }
+  }
+
+  @media (max-width: 1080px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 728px) {
+    grid-template-columns: 1fr;
   }
 `;

@@ -38,7 +38,12 @@ const Home: FC = () => {
 
           <strong>{product.name}</strong>
 
-          <span>{product.priceFormatted}</span>
+          <span>
+            {product.sellingPrice < product.price && (
+              <span>{product.priceFormatted}</span>
+            )}
+            {product.sellingPriceFormatted}
+          </span>
 
           <button type="button" onClick={() => handleAddProduct(product.id)}>
             <div>
